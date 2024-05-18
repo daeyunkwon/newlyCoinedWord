@@ -8,11 +8,48 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    //MARK: - Properties
+    @IBOutlet var backView: UIView!
+    @IBOutlet var searchTextField: UITextField!
+    @IBOutlet var searchButton: UIButton!
+    
+    @IBOutlet var firstAutoInputButton: UIButton!
+    @IBOutlet var secondAutoInputButton: UIButton!
+    @IBOutlet var thirdAutoInputButton: UIButton!
+    @IBOutlet var fourthAutoInputButton: UIButton!
+    
+    @IBOutlet var backImageView: UIImageView!
+    @IBOutlet var searchResultLabel: UILabel!
+    
+    //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
     }
+    
+    
+    //MARK: - Configurations
+    
+    
+    //MARK: - Functions
+    
+    
+    @IBAction func searchTextFieldReturnTapped(_ sender: UITextField) {
+    }
+    
+    @IBAction func searchButtonTapped(_ sender: UIButton) {
+    }
+    
+    
+    @IBAction func autoInputButtonTapped(_ sender: UIButton) {
+    }
+    
+    
+    
+    
+    
+    
 
 
 }
