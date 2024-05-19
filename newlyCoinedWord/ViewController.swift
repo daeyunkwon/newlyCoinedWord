@@ -70,6 +70,7 @@ class ViewController: UIViewController {
         searchTextField.borderStyle = .none
         searchTextField.tintColor = .black
         searchTextField.text = "삼귀자"
+        searchTextField.returnKeyType = .search
     }
     
     func setupUIButton() {
