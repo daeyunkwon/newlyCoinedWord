@@ -93,6 +93,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
                     </view>
                     <connections>
                         <outlet property="backImageView" destination="ZrI-4I-UTG" id="H7b-dN-3fx"/>
