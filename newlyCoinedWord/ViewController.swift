@@ -44,7 +44,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTapGesture()
-        configureUI()
+        setupUIView()
+        setupUITextField()
+        setupUIButton()
+        setupUIImageView()
+        setupUILabel()
     }
     
     //MARK: - Configurations
@@ -56,15 +60,19 @@ class ViewController: UIViewController {
         self.view.addGestureRecognizer(tapGesture)
     }
     
-    func configureUI() {
+    func setupUIView() {
         backView.backgroundColor = .white
         backView.layer.borderColor = UIColor.black.cgColor
         backView.layer.borderWidth = 2
-        
+    }
+    
+    func setupUITextField() {
         searchTextField.borderStyle = .none
         searchTextField.tintColor = .black
         searchTextField.text = "삼귀자"
-        
+    }
+    
+    func setupUIButton() {
         searchButton.backgroundColor = .black
         searchButton.tintColor = .white
         searchButton.setTitle("", for: .normal)
@@ -83,10 +91,14 @@ class ViewController: UIViewController {
         
         fourthAutoInputButton.setTitle("꾸안꾸", for: .normal)
         configureAutoInputButton(button: fourthAutoInputButton)
-        
+    }
+    
+    func setupUIImageView() {
         backImageView.image = UIImage.background
         backImageView.contentMode = .scaleAspectFill
-        
+    }
+    
+    func setupUILabel() {
         searchResultLabel.text = "연애를 시작하기 전 썸 단계!"
         searchResultLabel.textAlignment = .center
         searchResultLabel.numberOfLines = 0
