@@ -80,17 +80,10 @@ class ViewController: UIViewController {
         let symbolImage = UIImage(systemName: "magnifyingglass", withConfiguration: symbolConfig)
         searchButton.setImage(symbolImage, for: .normal)
         
-        firstAutoInputButton.setTitle("윰차", for: .normal)
-        configureAutoInputButton(button: firstAutoInputButton)
-        
-        secondAutoInputButton.setTitle("실매", for: .normal)
-        configureAutoInputButton(button: secondAutoInputButton)
-        
-        thirdAutoInputButton.setTitle("만반잘부", for: .normal)
-        configureAutoInputButton(button: thirdAutoInputButton)
-        
-        fourthAutoInputButton.setTitle("꾸안꾸", for: .normal)
-        configureAutoInputButton(button: fourthAutoInputButton)
+        configureAutoInputButton(button: firstAutoInputButton, titleText: "윰차")
+        configureAutoInputButton(button: secondAutoInputButton, titleText: "실매")
+        configureAutoInputButton(button: thirdAutoInputButton, titleText: "만반잘부")
+        configureAutoInputButton(button: fourthAutoInputButton, titleText: "꾸안꾸")
     }
     
     func setupUIImageView() {
@@ -104,11 +97,12 @@ class ViewController: UIViewController {
         searchResultLabel.numberOfLines = 0
     }
     
-    func configureAutoInputButton(button: UIButton) {
+    func configureAutoInputButton(button: UIButton, titleText: String) {
         button.layer.borderColor = UIColor.black.cgColor
         button.layer.borderWidth = 1
         button.tintColor = .black
         button.layer.cornerRadius = 12
+        button.setTitle(titleText, for: .normal)
     }
     
     //MARK: - Functions
