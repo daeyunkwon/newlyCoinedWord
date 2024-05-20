@@ -43,7 +43,6 @@ class ViewController: UIViewController {
     //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupTapGesture()
         setupUIView()
         setupUITextField()
         setupUIButton()
@@ -52,13 +51,6 @@ class ViewController: UIViewController {
     }
     
     //MARK: - Configurations
-    
-    func setupTapGesture() {
-        let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer()
-        tapGesture.delegate = self
-             
-        self.view.addGestureRecognizer(tapGesture)
-    }
     
     func setupUIView() {
         backView.backgroundColor = .white
@@ -108,6 +100,10 @@ class ViewController: UIViewController {
     
     //MARK: - Functions
     
+    @IBAction func keyboardDismiss(_ sender: Any) {
+        view.endEditing(true)
+    }
+    
     @IBAction func searchTextFieldReturnTapped(_ sender: UITextField) {
         guard let searchText = sender.text else {return}
         showNewlyCoinedWordMeaning(newlyCoinedWord: searchText)
@@ -146,11 +142,3 @@ class ViewController: UIViewController {
     }
 }
 
-//MARK: - UIGestureRecognizerDelegate
-
-extension ViewController: UIGestureRecognizerDelegate {
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
-        self.view.endEditing(true)
-        return true
-    }
-}

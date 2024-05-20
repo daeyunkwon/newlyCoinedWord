@@ -36,6 +36,7 @@
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Button"/>
                                         <connections>
+                                            <action selector="keyboardDismiss:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Zoo-RE-Nh5"/>
                                             <action selector="searchButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Usj-ln-oCM"/>
                                         </connections>
                                     </button>
@@ -94,6 +95,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="i7V-8p-cm4" appends="YES" id="H0o-Eh-twz"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="backImageView" destination="ZrI-4I-UTG" id="H7b-dN-3fx"/>
@@ -108,6 +112,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="i7V-8p-cm4">
+                    <connections>
+                        <action selector="keyboardDismiss:" destination="BYZ-38-t0r" id="Ssf-Ih-Qtn"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="130.53435114503816" y="-34.507042253521128"/>
         </scene>
