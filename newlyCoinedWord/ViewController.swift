@@ -128,21 +128,12 @@ class ViewController: UIViewController {
     }
     
     @IBAction func autoInputButtonTapped(_ sender: UIButton) {
-        let newlyCoinedWord = sender.currentTitle
+        guard let newlyCoinedWord = sender.currentTitle else {return}
+        guard let wordMeaning = newlyCoinedWordList[newlyCoinedWord] else {return}
         
         searchTextField.text = newlyCoinedWord
         
-        switch newlyCoinedWord {
-        case "윰차":
-            searchResultLabel.text = "유명인과 무명인을 차별한다!"
-        case "실매":
-            searchResultLabel.text = "실시간 매니저!"
-        case "만반잘부":
-            searchResultLabel.text = "만나서 반가워 잘 부탁해!"
-        case "꾸안꾸":
-            searchResultLabel.text = "꾸민 듯 안 꾸민 듯!"
-        default: break
-        }
+        searchResultLabel.text = wordMeaning
     }
 }
 
