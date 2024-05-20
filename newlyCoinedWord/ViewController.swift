@@ -134,6 +134,19 @@ class ViewController: UIViewController {
         searchTextField.text = newlyCoinedWord
         
         searchResultLabel.text = wordMeaning
+        
+        showRandomKeywordInSelectedButton(sender: sender)
+    }
+    
+    func showRandomKeywordInSelectedButton(sender: UIButton) {
+        while true {
+            guard let randomKeyword = newlyCoinedWordList.randomElement()?.key else {return}
+            
+            if randomKeyword != firstAutoInputButton.currentTitle && randomKeyword != secondAutoInputButton.currentTitle && randomKeyword != thirdAutoInputButton.currentTitle && randomKeyword != fourthAutoInputButton.currentTitle {
+                sender.setTitle(randomKeyword, for: .normal)
+                break
+            }
+        }
     }
 }
 
