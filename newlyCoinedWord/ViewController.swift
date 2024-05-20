@@ -43,14 +43,18 @@ class ViewController: UIViewController {
     //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureUI()
+    }
+    
+    //MARK: - Configurations
+    
+    func configureUI() {
         setupUIView()
         setupUITextField()
         setupUIButton()
         setupUIImageView()
         setupUILabel()
     }
-    
-    //MARK: - Configurations
     
     func setupUIView() {
         backView.backgroundColor = .white
@@ -79,6 +83,14 @@ class ViewController: UIViewController {
         configureAutoInputButton(button: fourthAutoInputButton, titleText: "꾸안꾸")
     }
     
+    func configureAutoInputButton(button: UIButton, titleText: String) {
+        button.layer.borderColor = UIColor.black.cgColor
+        button.layer.borderWidth = 1
+        button.tintColor = .black
+        button.layer.cornerRadius = 12
+        button.setTitle(titleText, for: .normal)
+    }
+    
     func setupUIImageView() {
         backImageView.image = UIImage.background
         backImageView.contentMode = .scaleAspectFill
@@ -88,14 +100,6 @@ class ViewController: UIViewController {
         searchResultLabel.text = "연애를 시작하기 전 썸 단계!"
         searchResultLabel.textAlignment = .center
         searchResultLabel.numberOfLines = 0
-    }
-    
-    func configureAutoInputButton(button: UIButton, titleText: String) {
-        button.layer.borderColor = UIColor.black.cgColor
-        button.layer.borderWidth = 1
-        button.tintColor = .black
-        button.layer.cornerRadius = 12
-        button.setTitle(titleText, for: .normal)
     }
     
     //MARK: - Functions
