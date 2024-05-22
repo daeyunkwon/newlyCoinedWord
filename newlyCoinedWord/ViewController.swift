@@ -44,6 +44,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        fetchKeyword()
     }
     
     //MARK: - Configurations
@@ -104,6 +105,30 @@ class ViewController: UIViewController {
     
     //MARK: - Functions
     
+    func fetchKeyword() {
+        guard let keyword = UserDefaults.standard.string(forKey: "keyword") else {
+            print("UserDefaults에서 저장된 키워드 데이터 불러오기 실패")
+            return
+        }
+        
+        guard let searchResult = UserDefaults.standard.string(forKey: "searchResult") else {
+            print("UserDefaults에서 저장된 검색 결과 문구 데이터 불러오기 실패")
+            return
+        }
+        
+        searchTextField.text = keyword
+        searchResultLabel.text = searchResult
+    }
+    
+    func saveKeyword(keywordValue: String) {
+        UserDefaults.standard.setValue(keywordValue, forKey: "keyword")
+    }
+    
+    func saveSearchResult(resultValue: String) {
+        UserDefaults.standard.setValue(resultValue, forKey: "searchResult")
+    }
+    
+    
     @IBAction func keyboardDismiss(_ sender: Any) {
         view.endEditing(true)
     }
@@ -119,15 +144,19 @@ class ViewController: UIViewController {
     func excuteSearch() {
         guard let searchText = searchTextField.text else {return}
         showNewlyCoinedWordMeaning(newlyCoinedWord: searchText)
+        
+        saveKeyword(keywordValue: searchText)
     }
     
     func showNewlyCoinedWordMeaning(newlyCoinedWord: String) {
         guard let meaning = newlyCoinedWordList[newlyCoinedWord] else {
             searchResultLabel.text = "검색결과가 없습니다."
+            saveSearchResult(resultValue: searchResultLabel.text ?? "")
             return
         }
         
         searchResultLabel.text = meaning
+        saveSearchResult(resultValue: searchResultLabel.text ?? "")
     }
     
     @IBAction func autoInputButtonTapped(_ sender: UIButton) {
