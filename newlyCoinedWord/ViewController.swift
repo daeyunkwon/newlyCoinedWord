@@ -109,11 +109,14 @@ class ViewController: UIViewController {
     }
     
     @IBAction func searchTextFieldReturnTapped(_ sender: UITextField) {
-        guard let searchText = sender.text else {return}
-        showNewlyCoinedWordMeaning(newlyCoinedWord: searchText)
+        excuteSearch()
     }
     
     @IBAction func searchButtonTapped(_ sender: UIButton) {
+        excuteSearch()
+    }
+    
+    func excuteSearch() {
         guard let searchText = searchTextField.text else {return}
         showNewlyCoinedWordMeaning(newlyCoinedWord: searchText)
     }
@@ -129,11 +132,10 @@ class ViewController: UIViewController {
     
     @IBAction func autoInputButtonTapped(_ sender: UIButton) {
         guard let newlyCoinedWord = sender.currentTitle else {return}
-        guard let wordMeaning = newlyCoinedWordList[newlyCoinedWord] else {return}
         
         searchTextField.text = newlyCoinedWord
         
-        searchResultLabel.text = wordMeaning
+        excuteSearch()
         
         showRandomKeywordInSelectedButton(sender: sender)
     }
